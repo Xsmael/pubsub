@@ -1,3 +1,9 @@
+/**
+ * FIXME: IMPORTANT NOTICE!    THIS THING IS FACING THE INTERNET YOU GOTTA SECURE IT PROPERLY ASAP!
+ * check this for securing the server: https://faye.jcoglan.com/security/authentication.html
+ */
+
+
 var http = require('http'),
     faye = require('faye');
 var log = require("noogger");
@@ -22,6 +28,7 @@ bayeux.on('unsubscribe', function (clientId, channel) {// unsubscribe [clientId,
 bayeux.on('publish', function (clientId, channel, data) { // publish [clientId, channel, data] – Triggered when a non-/meta/** message is published. Includes the client ID of the publisher (which may be null), the channel the message was sent to and the data payload.
     log.debug(clientId + " publish on channel " + channel);
 });
+
 
 bayeux.attach(server);
 server.listen(PORT);
