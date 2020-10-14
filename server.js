@@ -12,6 +12,8 @@ var server = http.createServer(),
     bayeux = new faye.NodeAdapter({
         mount: '/pubsub'
     });
+    
+log.init({outputPath:"SERVERS_LOGS/pubsub/"});
 
 bayeux.on('handshake', function (clientId) { // handshake [clientId] – Triggered when a new client connects and is issued with an ID.
     log.notice("[HANDSHAKE:] New client, id:" + clientId);
